@@ -43,6 +43,10 @@ app.factory('dataFactory', ['$http', function($http) {
     dataFactory.getContact = function (id) {
         return $http.get(urlBase + '/' + id);
     };
+    
+    dataFactory.editContact = function (item) {
+        return $http.put(urlBase + '/' + item.id, item);
+    };
 
     dataFactory.searchContacts = function (inicio, cantidad, parametro) {
         return $http.get(urlBase + "?inicio="+ inicio + "&cantidad=" + cantidad + '&filtro=' + parametro);

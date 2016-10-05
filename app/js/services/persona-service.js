@@ -22,6 +22,10 @@ app.service('personaService', ['$http', function ($http) {
           return $http.put(urlBase + '/' + item.id, item);
       };
       
+      this.deleteContact = function (item) {
+          return $http.delete(urlBase + '/' + item.id);
+      };
+      
       this.insertContact = function (item) {
           return $http.post(urlBase, item);
       };

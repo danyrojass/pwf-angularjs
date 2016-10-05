@@ -57,7 +57,7 @@
             window.open("#agenda/"+item.id+"/editar", '_self',false);
   	      };
 
-          $scope.editContact = function (contact) {
+        $scope.editContact = function (contact) {
              dataFactory.editContact(contact)
               .then(function (response) {
                   getContacts();
@@ -67,6 +67,20 @@
                   window.alert("Imposible modificar el contacto.");
               });
           };
+          
+        $scope.deleteContact = function (contact) {
+              var result = window.confirm("¿Está seguro que desea borrar el contacto?");
+              if(result == true){
+                console.log(contact.id);
+                 dataFactory.deleteContact(contact).then(function (response) {
+                      getContacts();
+                      window.alert("¡Contacto elimindo!");
+                      window.open("#personas/",'_self',false);
+                  }, function (error) {
+                      window.alert("Imposible eliminar el contacto.");
+                  });
+              } else {return false;}
+            };
 
         $scope.buscarContactos = function(){
             getContactos();
