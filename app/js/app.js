@@ -17,7 +17,10 @@ app.config(function ($routeProvider) {
             method: 'view'
         })
 
-
+        .when('/', {
+            templateUrl: 'views/formulario-persona-partial.html',
+            controller: 'formularioPersonaCtrl'
+        });
 });
 
 /**
@@ -39,5 +42,9 @@ app.factory('dataFactory', ['$http', function($http) {
         return $http.get(urlBase + "?inicio="+ inicio + "&cantidad=" + cantidad + '&filtro=' + parametro);
     };
 
+    dataFactory.insertContact = function (item) {
+        return $http.post(urlBase, item);
+    };
+    
     return dataFactory;
 }]);

@@ -17,5 +17,9 @@ app.service('personaService', ['$http', function ($http) {
       this.searchContacts = function (inicio, cantidad, parametro) {
           return $http.get(urlBase + "?inicio="+ inicio + "&cantidad=" + cantidad + '&filtro=' + parametro);
       };
+      
+      this.insertContact = function (item) {
+          return $http.post(urlBase, item);
+      };
 
 }]);
