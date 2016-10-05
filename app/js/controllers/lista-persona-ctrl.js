@@ -49,6 +49,24 @@
              window.alert("No se pudieron obtener los resultados.");
            });
         };
+        
+        
+        $scope.edit = function(item){
+            $scope.persona = angular.copy(item);
+            $rootScope.persona = $scope.persona;
+            window.open("#agenda/"+item.id+"/editar", '_self',false);
+  	      };
+
+          $scope.editContact = function (contact) {
+             dataFactory.editContact(contact)
+              .then(function (response) {
+                  getContacts();
+                  window.alert("¡Contacto modificado!");
+                  window.open("#personas/",'_self',false);
+              }, function (error) {
+                  window.alert("Imposible modificar el contacto.");
+              });
+          };
 
         $scope.buscarContactos = function(){
             getContactos();

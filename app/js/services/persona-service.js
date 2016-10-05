@@ -18,6 +18,10 @@ app.service('personaService', ['$http', function ($http) {
           return $http.get(urlBase + "?inicio="+ inicio + "&cantidad=" + cantidad + '&filtro=' + parametro);
       };
       
+      this.editContact = function (item) {
+          return $http.put(urlBase + '/' + item.id, item);
+      };
+      
       this.insertContact = function (item) {
           return $http.post(urlBase, item);
       };

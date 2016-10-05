@@ -16,6 +16,12 @@ app.config(function ($routeProvider) {
             controller: 'listaPersonaCtrl',
             method: 'view'
         })
+        
+          .when('/agenda/:id/editar', {
+            templateUrl: 'views/edit.html',
+            controller: 'listaPersonaCtrl',
+            method: 'edit'
+        })
 
         .when('/', {
             templateUrl: 'views/formulario-persona-partial.html',
