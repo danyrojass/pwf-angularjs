@@ -1,0 +1,42 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <section class="form">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input name="nombre" id="nombre" class="form-control" ng-model="persona.nombre" required="true" ng-disabled="true">
+                <span class="help-block">Nombre de la nueva persona.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input name="apellido" id="apellido" class="form-control" ng-model="persona.apellido" required="true" ng-disabled="true">
+                <span class="help-block">Apellido de la nueva persona.</span>
+            </div>
+
+	    <div class="form-group">
+                <label for="alias">Alias</label>
+                <input name="alias" id="alias" class="form-control" ng-model="persona.alias" ng-disabled="true">
+                <span class="help-block">Alias de la nueva persona.</span>
+            </div>
+
+	    <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="number" name="telefono" id="telefono" class="form-control" ng-model="persona.telefono" required="true" ng-disabled="true">
+                <span class="help-block">Nro. Telefónico de la nueva persona.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" name="email" id="email" ng-model="persona.email" placeholder="me@example.com" required="true" ng-disabled="true">
+		<span class="help-block">Email de la nueva persona.</span>
+            </div>
+
+	    <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input type="text" class="form-control" name="direccion" id="direccion" ng-model="persona.direccion" ng-disabled="true">
+		<span class="help-block">Dirección de la nueva persona.</span>
+            </div>
+
+        </section>
+    </div>
+</div>

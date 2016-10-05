@@ -1,28 +1,39 @@
 <!-- templates/lista-persona-partial -->
+Parámetro: <input type="text" id="parametro" name="parametro" />
+<button class="btn-xs btn-default btn-del" ng-click="buscarContactos()">Buscar</button>
+
+</br>
 <div class="panel panel-default">
-    <div class="panel-heading">Listado de personas</div>
-    <div class="panel-body">
+    <div class="panel-heading">Contactos</div>
+    <div class="panel-body"><input class="form-control w8 input-sm" size="8" placeholder="Filtros" ng-model="filter" />
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+		                <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Alias</th>
+		                <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Dirección</th>
+                    <th>Creación</th>
+                    <th>Modificación</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr ng-repeat="item in data.list">
-                    <td>
-                        {{item.nombre}}
-                    </td>
-                    <td>
-                        {{item.apellido}}
-                    </td>
-                    <td>@ {{item.username }}
-                    </td>
+	          <tbody>
+                <tr ng-repeat="item in data.lista | filter:filter">
+			               <td>{{item.id}}</td><td>{{item.nombre}}</td><td>{{item.apellido}}</td><td>{{item.alias}}</td><td>{{item.telefono}}</td><td>{{item.email}}</td><td>{{item.direccion}}</td><td>{{item.fechacreacion | date:'dd-MM-­yyyy HH:ss'}}</td><td>{{item.fechamodificacion | date:'dd­-MM-­yyyy HH:ss'}}</td>
+                     <td><button class="btn-xs btn-default btn-del" ng-click="getContact(item)">Ver</button></td>
+      					     <td><button class="btn-xs btn-default btn-del" ng-click="edit(item)">Editar</button></td>
+                     <td><button class="btn-xs btn-default btn-del" ng-click="deleteContact(item)">Borrar</button></td>
                 </tr>
             </tbody>
         </table>
+
+        <pagination total-items="total" ng-model="currentPage" ng-change="buscarContactos()"
+                    max-size="5" boundary-links="true"
+                    items-per-page="numPerPage" class="pagination-sm">
+        </pagination>
     </div>
 </div>
 <!-- Fin templates/lista-persona-partial -->
