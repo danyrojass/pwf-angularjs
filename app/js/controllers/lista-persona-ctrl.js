@@ -16,7 +16,7 @@
         $scope.results = $rootScope.results;
         $scope.persona = $rootScope.persona;
 
-        $scope.currentPage = 0;
+        $scope.currentPage = 1;
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
         /**
