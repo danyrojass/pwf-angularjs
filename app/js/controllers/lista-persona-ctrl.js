@@ -16,7 +16,7 @@
         $scope.results = $rootScope.results;
         $scope.persona = $rootScope.persona;
 
-        $scope.currentPage = 1;
+        $scope.currentPage = 0;
         $scope.numPerPage = 5;
         $scope.maxSize = 5;
         /**
@@ -41,10 +41,10 @@
         getContactos = function(){
            var parametro = document.getElementById("parametro").value;
            var inicio;
-           if ($scope.currentPage == 1){
+           if ($scope.currentPage == 0){
         	   inicio = $scope.currentPage;
            } else {
-        	   inicio = $scope.currentPage + 2*(2*($scope.currentPage-1));
+        	   inicio = $scope.currentPage + 2*(2*($scope.currentPage-1)) -1;
            }
            var cantidad = $scope.numPerPage;
            dataFactory.searchContacts(inicio, cantidad, parametro).then(function (response) {

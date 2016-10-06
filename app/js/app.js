@@ -52,6 +52,10 @@ app.factory('dataFactory', ['$http', function($http) {
         return $http.get(urlBase + "?inicio="+ inicio + "&cantidad=" + cantidad + '&filtro=' + parametro);
     };
 
+    dataFactory.deleteContact = function (item) {
+        return $http.delete(urlBase + '/' + item.id);
+    };
+    
     dataFactory.insertContact = function (item) {
         return $http.post(urlBase, item);
     };
