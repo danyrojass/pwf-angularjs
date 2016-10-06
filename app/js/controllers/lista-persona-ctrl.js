@@ -40,7 +40,12 @@
 
         getContactos = function(){
            var parametro = document.getElementById("parametro").value;
-           var inicio = $scope.currentPage;
+           var inicio;
+           if ($scope.currentPage == 1){
+        	   inicio = $scope.currentPage;
+           } else {
+        	   inicio = $scope.currentPage + 2*(2*($scope.currentPage-1));
+           }
            var cantidad = $scope.numPerPage;
            dataFactory.searchContacts(inicio, cantidad, parametro).then(function (response) {
              $scope.data = response.data;
