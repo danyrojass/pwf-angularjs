@@ -3,8 +3,8 @@
  * @class
  */
 
-app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'dataFactory',
-    function ($scope, personaService, dataFactory) {
+app.controller('formularioPersonaCtrl', ['$scope', '$rootScope', 'personaService', 'dataFactory',
+    function ($scope, $rootScope, personaService, dataFactory) {
         /**
          * Array que contiene los datos de la lista
          * @type Array
@@ -12,14 +12,6 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'dataFactor
          */
 
          $scope.persona = {};
-
-         function getContacts() {
-             dataFactory.getContacts().then(function (response) {
-               $scope.data = response.data;
-             }, function (error) {
-               window.alert("No se pudieron obtener los contactos.");
-             });
-         }
 
         /**
          * Se encarga de agregar datos a la lista
@@ -57,12 +49,12 @@ app.controller('formularioPersonaCtrl', ['$scope', 'personaService', 'dataFactor
     	    } else {
             dataFactory.insertContact(contact)
                 .then(function (response) {
-                    getContacts();
                     window.alert("¡Contacto guardado!");
+		    window.open("#agenda/"+response.data.id+"/editar", '_self',false);
+		    $rootScope.persona = $scope.persona;
                 }, function(error) {
                     window.alert("¡No se pudo guardar el contacto!");
                 });
-            window.open("#personas/",'_self',false);
     	   }
        }
     }
